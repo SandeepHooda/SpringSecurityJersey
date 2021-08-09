@@ -4,21 +4,19 @@ import static com.sandeep.security.springJersey.appRoles.RolesConstant._AdminRol
 import static com.sandeep.security.springJersey.appRoles.RolesConstant._HelloRole;
 
 import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 import org.springframework.stereotype.Component;
 
 @Path("/hello")
 @Component
-@Consumes({ MediaType.APPLICATION_JSON + "; charset=UTF-8" })
-@Produces({ MediaType.APPLICATION_JSON + "; charset=UTF-8" })
 public class SayHello {
 	
+	//Use postman with url http://localhost:8080/api/hello/sandeep
+	//Basic auth user : admin
+	//password: password
 	@Path("/{name}")
 	@GET
 	@RolesAllowed({_HelloRole, _AdminRole})
