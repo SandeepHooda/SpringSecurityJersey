@@ -8,12 +8,19 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import com.sandeep.security.springJersey.service.HelloService;
 
 @Path("/hello")
 @Component
 public class SayHello {
 	
+	@Autowired
+	@Qualifier("HelloService")
+	private HelloService helloService;
 	//Use postman with url http://localhost:8080/api/hello/sandeep
 	//Basic auth user : admin
 	//password: password
@@ -21,8 +28,7 @@ public class SayHello {
 	@GET
 	@RolesAllowed({_HelloRole, _AdminRole})
 	public String sayHello(@PathParam("name") String name) {
-		System.out.println("name is: "+name);
-		return "Hello "+name;
+		return helloService.sayHello(name);
 	}
 
 }
