@@ -1,0 +1,48 @@
+<button mat-button color="primary" (click)="accordion.openAll()">Expand All</button>
+<button mat-button color="primary" (click)="accordion.closeAll()">Close All</button>
+
+<cdk-accordion class="example-accordion" multi="true"  #accordion="cdkAccordion">
+  <cdk-accordion-item
+
+    #accordionItemCorp="cdkAccordionItem"
+
+    [attr.aria-expanded]="accordionItemCorp.expanded"
+    >
+    <div class="example-accordion-item-header" (click)="accordionItemCorp.toggle()">
+      "Corp Admin"
+      <span class="example-accordion-item-description">
+        Click to {{ accordionItemCorp.expanded ? 'close' : 'open' }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      role="region"
+      [style.display]="accordionItemCorp.expanded ? '' : 'none'"
+      >
+      <button mat-button color="primary" routerLink="mul">Multiply</button>
+    <button mat-button color="primary" routerLink="div">Divide</button>
+    </div>
+  </cdk-accordion-item>
+
+  <cdk-accordion-item
+
+  #accordionItemAppAdmin="cdkAccordionItem"
+
+  [attr.aria-expanded]="accordionItemAppAdmin.expanded"
+  >
+  <div class="example-accordion-item-header" (click)="accordionItemAppAdmin.toggle()">
+    "App Admin"
+    <span class="example-accordion-item-description">
+      Click to {{ accordionItemAppAdmin.expanded ? 'close' : 'open' }}
+    </span>
+  </div>
+  <div
+    class="example-accordion-item-body"
+    role="region"
+    [style.display]="accordionItemAppAdmin.expanded ? '' : 'none'"
+    >
+    <button mat-button color="primary" routerLink="add">Add</button>
+    <button mat-button color="primary" routerLink="sub">Sub</button>
+  </div>
+</cdk-accordion-item>
+</cdk-accordion>

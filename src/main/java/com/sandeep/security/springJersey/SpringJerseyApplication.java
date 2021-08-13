@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringJerseyApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(SpringJerseyApplication.class, args);
 	}
 

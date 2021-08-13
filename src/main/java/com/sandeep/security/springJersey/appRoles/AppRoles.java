@@ -5,7 +5,8 @@ import static com.sandeep.security.springJersey.appRoles.RolesConstant.*;
 public enum AppRoles {
 	
 	HelloRole(_HelloRole),
-	AdminRole(_AdminRole);
+	AdminRole(_AdminRole),
+	MathAdd(_MathAdd);
 	
 	private String roleDesc;
 	private AppRoles(String roleDesc) {

@@ -5,6 +5,7 @@ import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
+import com.sandeep.security.springJersey.add.AddEndPointImpl;
 import com.sandeep.security.springJersey.endpoint.SayHello;
 import com.sandeep.security.springJersey.filter.SecurityFilter;
  
@@ -15,6 +16,9 @@ public class JerseyConfig extends ResourceConfig
     public JerseyConfig() 
     {
     	register(SecurityFilter.class);
+    	register(Cors.class);
         register(SayHello.class);
+        register(AddEndPointImpl.class);
+       
     }
 }
